@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>My App</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="Tooplate">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <!-- script css -->
+     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" >
+     <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}" >
+     <link rel="stylesheet" href="{% static 'css/animate.css' %}" >
+     <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+
+</head>
+<body>
+
+     <!-- content -->
+     <div class="container">
+          {% block content %}
+          {% endblock %}
+     </div>
+
+
+     <!-- script js -->
+     <script src="{% static 'jquery/jquery.min.js' %}"></script>
+     <script src="{% static 'modernizr/modernizr.min.js' %}"></script>
+     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'fontawesome/js/all.min.js' %}"></script>
+     <script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+</html>

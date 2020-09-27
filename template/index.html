@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Poliwangi - Deep Learning</title>
+
+		<!-- Google web fonts -->
+		<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+
+		<!-- The main CSS file -->
+		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container-fluid pl-5 pr-5">
+				<a class="navbar-brand" href="/">POLIWANGI</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarText">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link text-white" href="#">How to use</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div>
+			<h2 class="judul">Ketahui Jenis Gambar<br> 
+			Contoh Pada Aplikasi ini mengetahui Jenis Bunga</h2>
+		</div>
+
+		<div id="content">
+			<div class="row no-gutters" id="row">
+				<div class="col-md">
+					<form id="upload" method="post" action="predictImage" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div id="drop">
+							Upload image
+							<a>Browse</a>
+							<input type="file" name="filePath" accept=".png,.jpg,.jpeg">
+						</div>
+					</form>
+				</div>
+				<div class="col-md">
+					<div class="predict">
+						<h5>The classification of the image is <span>{{predictedLabel}} {{predictedAcc}}</span></h5>
+						<div class="image">
+							<img src={{filePathName}} alt="imagename" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        
+		<!-- JavaScript Includes -->
+		<script src="{% static 'jquery/jquery.min.js' %}"></script>
+		<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.knob.js' %}"></script>
+
+		<script src="{% static 'assets/js/script.js' %}"></script>
+
+	</body>
+</html>
