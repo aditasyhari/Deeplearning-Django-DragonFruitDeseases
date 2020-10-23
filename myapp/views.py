@@ -1,9 +1,6 @@
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse
-# from starlette.applications import Starlette
-# from starlette.middleware.cors import CORSMiddleware
-# from starlette.responses import HTMLResponse, JSONResponse
 
 # Create your views here.
 import requests
@@ -12,11 +9,6 @@ from PIL import Image
 import numpy as np
 import efficientnet.tfkeras
 from tensorflow.keras.models import load_model
-
-
-# app = Starlette()
-# app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
-
 
 # parameters
 input_size = (250, 250)
@@ -36,9 +28,6 @@ def reshape(imgs_arr):
 # Load Model
 MODEL_PATH = './models/pitaya/model10.h5'
 model = load_model(MODEL_PATH, compile = False)
-
-
-
 
 def index(request):
     context = {'a':1}
